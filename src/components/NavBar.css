@@ -31,3 +31,10 @@
 .nav-link:hover {
     color: #00a8ff;
 }
+
+
+.nav-link.active {
+    font-weight: bold;
+    color: #tu-color-primario; /* Usa tu variable de color aquí */
+    border-bottom: 2px solid currentColor;
+}
