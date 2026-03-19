@@ -1,31 +1,32 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
 
 const Item = ({ id, name, img, price, stock }) => {
     return (
-        <article className="card-item" style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '8px', width: '250px' }}>
-            <header className="header">
-                <h2 className="item-header" style={{ fontSize: '1.2rem', margin: '0 0 10px' }}>
-                    {name}
-                </h2>
+        <article className="card-producto" style={{ width: '100%', maxWidth: '300px' }}>
+            <header>
+                <h3 style={{ margin: '15px 0' }}>{name}</h3>
             </header>
+            
             <picture>
-                <img src={img} alt={name} className="item-img" style={{ maxWidth: '100%', height: 'auto', borderRadius: '4px' }}/>
+                <img src={img} alt={name} style={{ width: '100%', height: '220px', objectFit: 'cover', borderRadius: '8px' }} />
             </picture>
-            <section style={{ margin: '15px 0' }}>
-                <p className="info">Precio: ${price}</p>
-                <p className="info">Stock disponible: {stock}</p>
+            
+            <section style={{ margin: '15px 0', width: '100%' }}>
+                <p style={{ margin: '5px 0', fontSize: '1.2rem' }}>Precio: <strong>${price}</strong></p>
+                <p style={{ margin: '5px 0', color: stock > 0 ? '#4CAF50' : '#f44336', fontWeight: 'bold' }}>
+                    Stock: {stock}
+                </p>
             </section>
-            <footer className="item-footer">
-                {}
-                <Link to={`/item/${id}`} className="option-button" style={{ 
-                    backgroundColor: '#333', 
-                    color: 'white', 
+            
+            <footer style={{ marginBottom: '10px' }}>
+                <Link to={`/item/${id}`} style={{ 
                     padding: '10px 20px', 
+                    backgroundColor: '#2c3e50', 
+                    color: 'white', 
                     textDecoration: 'none', 
                     borderRadius: '5px',
-                    display: 'inline-block' 
+                    fontWeight: 'bold',
+                    display: 'inline-block'
                 }}>
                     Ver detalle
                 </Link>

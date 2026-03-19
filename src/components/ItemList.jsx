@@ -1,10 +1,16 @@
-import React from 'react';
 import Item from './Item';
 
-
-const ItemList = ({ products }) => {
+const ItemList = ({ products = [] }) => { 
     return (
-        <div className="products-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+        <div style={{ 
+            display: 'grid', 
+            // 🔥 LA MAGIA ESTÁ ACÁ: Le decimos que cree exactamente 4 columnas del mismo tamaño
+            gridTemplateColumns: 'repeat(4, 1fr)', 
+            gap: '20px',
+            padding: '20px',
+            maxWidth: '1200px', // Evita que se estiren al infinito en monitores gigantes
+            margin: '0 auto' // Centra toda la grilla en la pantalla
+        }}>
             {products.map(prod => (
                 <Item key={prod.id} {...prod} />
             ))}
